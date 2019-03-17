@@ -3,16 +3,20 @@ import PropTypes from 'prop-types'
 import Product from './Product'
 
 const ProductItem = ({ product, onAddToCartClicked }) => (
-  <div style={{ marginBottom: 20 }}>
+  <div className="productContainer">
+    <div className="productImageContainer">
+      <img className="productImage" src="assets/iPadPro.png" alt={product.title} />
+    </div>
     <Product
       title={product.title}
       price={product.price}
-      inventory={product.inventory} />
-    <button
+      inventory={product.inventory}>
+    <button className="productBtn"
       onClick={onAddToCartClicked}
       disabled={product.inventory > 0 ? '' : 'disabled'}>
       {product.inventory > 0 ? 'Add to cart' : 'Sold Out'}
     </button>
+      </Product>
   </div>
 )
 

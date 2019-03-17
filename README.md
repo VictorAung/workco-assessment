@@ -37,3 +37,9 @@ Note: You're encouraged to show your work by including multiple commits - we'll 
 You're welcome (but not required) to add any libraries you think would be helpful.
 
 Please also update this README file: we'd love to see notes on your decision-making process, links to the most exciting pieces of code, or anything else that will give us additional context when reviewing your assessment.
+
+## Task 1: Implement Responsive design
+
+First things first, actually implement the given sketch into code! As it states in the instructions, it should be responsive and not adaptive. Looking at the breakpoints though, the mobile implementation is slightly different - the image appears on the top of the card rather than on the left and the shopping cart link is in a different place so that's something to note. For that reason, I focused on implementing the desktop/tablet version first.
+
+1. Export assets from Sketch file.
