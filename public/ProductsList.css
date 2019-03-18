@@ -23,11 +23,30 @@ a {
 .header {
   display: flex;
   border-bottom: 1px solid #DADADA;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 .header h1 {
   font-weight: bold;
   font-size: calc(26pt + 2vw);
+}
+
+.cartImg {
+  width: 17px;
+  height: 13.54px;
+  margin-right: 8px;
+}
+
+.cartLink:hover {
+  filter: brightness(0) saturate(100%) invert(41%) sepia(91%) saturate(328%) hue-rotate(170deg) brightness(94%) contrast(100%);
+}
+
+.cartLinkContainer {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .productItem {
@@ -131,6 +150,7 @@ a {
   font-size: 14px;
   color: white;
   padding: 12px 20px;
+  border: none;
   border-radius: 10000px;
   cursor: pointer;
 }

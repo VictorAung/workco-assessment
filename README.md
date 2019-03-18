@@ -40,10 +40,10 @@ Please also update this README file: we'd love to see notes on your decision-mak
 
 ## Task 1: Implement Responsive design
 
-First things first, actually implement the given sketch into code! As it states in the instructions, it should be responsive and not adaptive.
+First things first, actually implement the given sketch into code! As per the instructions, it should be responsive and not adaptive.
 
 1. I'm on a Windows machine so I don't have the Helvetica Neue Font, sorry about that! As far as I can see though, it's only used in a handful of places. I continue to use Chivo instead.
 
 2. I tried to make the project as Responsive as possible so for things like the "Acme Store" header, I use a minimum of 26px font added to a 2vw scaling factor. This means that "Acme Store" scales linearly with screen width but it also means it's not exactly accurate to the Breakpoints. Based off the task explanation though, I felt that it was more important to have responsive text that captures the essence of the sketch rather than follow the sketch exactly to a tee.
 
-3. That being said, there are exceptions that I handled on a case by case basis. The price of the items are 21px in Breakpoints 1 and 2 despite having different widths. The price of the items in Breakpoint 3 is 16px so I handled that adaptively rather than responsive because the sketch file made it clear that that particular piece of text should not scale linearly with width.
+3. That being said, there are exceptions that I handled on a case by case basis. The price of the items are 21px in Breakpoints 1 and 2 despite the breakpoints having different widths. The price of the items in Breakpoint 3 is 16px so I handled that adaptively rather than responsively because the sketch file made it clear that that particular piece of text should not scale linearly with width.
