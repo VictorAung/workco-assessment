@@ -2,20 +2,29 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Product = ({ price, inventory, title, children }) => (
-  <div className = "productContent">
-    <div className="flexbox">
-      <p className="productName">{title}</p>
-      <p className="productPrice">${price}</p>
+  <div className="productContent">
+    <div className="imageWrapper">
+      <img src={`./assets/${title}.png`} alt={title} />
     </div>
-    <p className="productInventory">{inventory > 0 ? `${inventory} Remaining` : 'Out of Stock'}</p>
-    {children}
+    <div className="infoWrapper">
+      <div className="productDescription">
+        <div className= "productName">{title}</div>
+        <div className="productPrice">${price}</div>
+      </div>
+
+      <div className="productInventory">
+        {inventory ? `${inventory} Remaining` : null}
+      </div>
+      {children}
+    </div>
   </div>
 )
 
 Product.propTypes = {
   price: PropTypes.number,
   inventory: PropTypes.number,
-  title: PropTypes.string
+  title: PropTypes.string,
+  children: PropTypes.node
 }
 
 export default Product

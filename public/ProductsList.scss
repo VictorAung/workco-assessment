@@ -1,0 +1,182 @@
+$viewportMinimum: 320px;
+$viewportMaximum: 1280px;
+
+$phone: 768px;
+$tablet: 1280px;
+
+
+@mixin breakpoint($class) {
+    @if $class == phone {
+        @media (min-width: $phone) {
+        @content;
+        }
+    }
+    @else if $class == tablet {
+        @media (min-width: $tablet) {
+        @content;
+        }
+    }
+  }
+
+html {
+  background: #F5F5F5;
+  font-family: 'Chivo', sans-serif;
+  box-sizing: border-box;
+}
+
+* {
+  font-size: 100%;
+  vertical-align: baseline;
+  box-sizing: inherit;
+  padding: 0;
+}
+
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.button {
+  &:disabled {
+    cursor: default;
+  }
+}
+
+.header{
+    display: flex;
+    border-bottom: 1px solid #DADADA;
+    flex-direction: column;
+
+    h1 {
+        font-weight: bold;
+        font-size: calc(26pt + 2vw);
+    }
+}
+
+.productItem{
+    background-color: white;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+
+    @include breakpoint(phone) {
+        margin-bottom: 28px;
+    }
+
+}
+
+.productContent{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    @include breakpoint(phone) {
+        flex-direction: row;
+    }
+    .infoWrapper{
+        padding: 24px;
+        width: 100%;
+    }
+
+.productDescription{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+
+    .productName{
+      position: relative;
+      top: 0px;
+      font-size: calc(20px + 1vw); //for product title
+    }
+
+    .productPrice{
+        font-size: 16px; //16px for phone
+        font-weight: lighter; //lighter for all three
+        @include breakpoint(phone) {
+        font-size: 21px; //21 px for tablet and computer
+        }
+    }
+
+    .productInventory{
+        text-transform: uppercase;
+        color: #9B9B9B;
+        font-size: 12px;
+        margin-bottom: 12px;
+
+    }
+
+    .btnContainer {
+      position: relative;
+      margin-top: 24px;
+      @include breakpoint(phone) {
+        position: absolute;
+        bottom: 32px;
+      }
+    }
+
+    .imageWrapper{
+        margin-bottom: -10px;
+        @include breakpoint(phone) {
+            max-width: 40%;
+
+        }
+    }
+
+    img{
+        max-width: 100%;
+        @include breakpoint(phone) {
+            object-fit: cover;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+  .productContent {
+    flex-direction: row;
+  }
+}
+
+.itemList{
+    margin-bottom: 30px;
+}
+
+.button{
+    background-color: #5E97D1;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10000px;
+    cursor: pointer;
+    &:hover{
+        background-color: #407FC0;
+    }
+    &[disabled]{
+        background-color: #5E97D1;
+        opacity: 0.3;
+    }
+}
+
+.mainContainer {
+    min-width: $viewportMinimum;
+    max-width: $viewportMaximum;
+    min-height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    @include breakpoint(phone) {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    @include breakpoint(tablet) {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+}

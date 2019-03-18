@@ -3,21 +3,22 @@ import PropTypes from 'prop-types'
 import Product from './Product'
 
 const ProductItem = ({ product, onAddToCartClicked }) => (
-  <div className="productContainer">
-    <div className="productImageContainer">
-      <img className="productImage" src="assets/iPadPro.png" alt={product.title} />
-    </div>
+  <li className="productItem">
     <Product
       title={product.title}
       price={product.price}
-      inventory={product.inventory}>
-    <button className="productBtn"
-      onClick={onAddToCartClicked}
-      disabled={product.inventory > 0 ? '' : 'disabled'}>
-      {product.inventory > 0 ? 'Add to cart' : 'Sold Out'}
-    </button>
-      </Product>
-  </div>
+      inventory={product.inventory} >
+
+      <div className="btnContainer">
+        <button
+          className="button"
+          onClick={onAddToCartClicked}
+          disabled={product.inventory > 0 ? '' : 'disabled'}>
+          {'Add to cart'}
+        </button>
+      </div>
+    </Product>
+  </li>
 )
 
 ProductItem.propTypes = {
