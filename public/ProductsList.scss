@@ -64,7 +64,7 @@ a {
 
     h1 {
         font-weight: bold;
-        font-size: calc(26pt + 2vw);
+        font-size: calc(26pt + 1vw);
         @media (max-width: $phone) {
           margin-bottom: 12px;
         }
@@ -90,14 +90,12 @@ a {
   font-size: 14px; //cart is 14px Chivo at all breakpoints
   display: flex;
   align-items: left;
+  margin-bottom: 24px;
 
   @include breakpoint(phone) { //
     align-items: center;
     justify-content: center;
-  }
-
-  @media (max-width: $phone) {
-    margin-bottom: 24px;
+    margin-bottom: inherit;
   }
 
 }
@@ -122,9 +120,15 @@ a {
     @include breakpoint(phone) {
         flex-direction: row;
     }
+
     .infoWrapper{
-        padding: 24px;
+        padding: 28px;
+        padding-left: 24px;
+        padding-right: 24px;
         width: 100%;
+        @include breakpoint(phone) {
+            padding: 3.75%; //
+        }
     }
 
 .productDescription{
@@ -160,7 +164,10 @@ a {
         text-transform: uppercase;
         color: #9B9B9B;
         font-size: 12px;
-        margin-bottom: 12px;
+        margin-bottom: 32px;
+        @include breakpoint(phone) {
+          margin-bottom: 64px; //21 px for tablet and computer
+        }
 
     }
 

@@ -23,11 +23,15 @@ $tablet: 1280px;
     position: absolute;
     left: 5%;
     width: 90%;
-    font-size: calc(26px + 1vw); //adaptive
+    // font-size: calc(26px + 1vw); did this originall to make it adaptive but didn't look nice
+    font-size: 28px;
+    @include breakpoint(phone) {
+      font-size: 38px;
+    }
     font-weight: bold;
     padding-left: 0px;
     padding-right: 0px;
-    padding-bottom: calc(16px + 1vw);  //adaptive
+    padding-bottom: 22px;  //adaptive
     border-bottom: 1px solid #D8D8D8;
 
   }
@@ -70,12 +74,18 @@ $tablet: 1280px;
       }
 
       .emptyCart{
+          margin-top: 40%;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
           height: 100%;
           filter: invert(67%) sepia(9%) saturate(0%) hue-rotate(204deg) brightness(90%) contrast(94%); //for the gray shopping cart
+
+          @include breakpoint(phone) {
+            margin-top: 20%;
+          }
+
           .cartIcon2{
               height: calc(57px + 2vw);
               width: calc(72px + 2vw);
@@ -92,12 +102,38 @@ $tablet: 1280px;
 
       .cartProduct{
         margin-bottom: 0px;
+        .productContent {
+          flex-direction: row;
+
+          @include breakpoint(phone) {
+              justify-content: center;
+            }
+            .infoWrapper {
+              padding-top: 0;
+            }
+            .img {
+
+              object-fit: cover;
+
+            }
+
+            .productName {
+              margin-right: 0;
+            }
+            .productPrice {
+              padding-top: 10px;
+            }
+        }
 
       }
+
+
 
       .cartFullProduct{
         flex-direction: row;
         margin-bottom: 20px;
+        justify-content: space-between;
+
         .productDescription{
             display: block;
 
@@ -107,17 +143,24 @@ $tablet: 1280px;
         }
         .imageWrapper{
             margin-bottom: -10px;
+            max-width: 35%;
+            object-fit: cover;
+
 
             @include breakpoint(phone) {
-                max-width: 40%;
-                max-height: 282px;
+                max-height: 10%;
+                max-width: 25%;
+                overflow: hidden;
+                // max-height: 282px;
 
             }
         }
         .infoWrapper{
-            padding: 0 24px;
+            padding: 0 36px;
+
             @include breakpoint(phone) {
                 padding: 24px;
+                max-height: 120px;
             }
         }
     }
@@ -125,12 +168,13 @@ $tablet: 1280px;
       .cartButtonDiv{
           display: flex;
           position: relative;
-          margin-top: 32px;
+          margin-top: 24px;
           label{
               flex-grow: 1;
               font-size: 14px;
               height: 40px;
               input{
+                  outline: solid 1px #F2F4F7;
                   text-align: center;
                   width: 100%;
                   height: 100%;
@@ -143,6 +187,7 @@ $tablet: 1280px;
         position: absolute;
         bottom: 0;
         width: 100%;
+        background-color: #FFF;
 
           .cartSummary{
               font-size: 14px;
@@ -202,7 +247,9 @@ $tablet: 1280px;
   .modal{
     >div{
         margin: 0 auto;
-        border-radius: 14px;
+        @include breakpoint(phone) {
+            border-radius: 14px;
+        }
     }
     .closeModal {
         width: 30px;
@@ -247,12 +294,21 @@ $tablet: 1280px;
 }
 
 .cartProducts {
-  border: 2px solid green;
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 120px;
+  overflow-y: auto;
   left: 5%;
   width: 90%;
-  max-height: 50%;
-  overflow-y: scroll;
+  max-height: 54%;
+
+
+  @include breakpoint(phone) {
+      // overflow-y: scroll;
+      max-height: 58%;
+      top: 20%;
+  }
 }
 
 
