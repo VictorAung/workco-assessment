@@ -2,6 +2,8 @@
 
 This is my solution to the [Work & Co Web Code Assessment](https://github.com/workco/code-assessment-web) which is in turn a modified version of the [Redux Shopping Cart Example](https://github.com/reactjs/redux/tree/master/examples/shopping-cart).
 
+This project was made using React, Redux, SCSS (compiled into CSS), HTML, and react-modal.
+
 To try it for yourself, either clone or download this repo to your local machine, install all the dependencies and start a development server. To install dependencies, use the package manager [Yarn](https://yarnpkg.com/en/):
 
 ```
@@ -21,13 +23,24 @@ First things first, actually implement the given breakpoints into code! As per t
 
 1. I'm on a Windows machine so I don't have the Helvetica Neue Font, sorry about that! As far as I can see though, it's only used in a handful of places. I continue to use Chivo instead.
 
-2. I tried to make the project as Responsive as possible so for things like the "Acme Store" header, I use a minimum of 26px font added to a 2vw scaling factor. This means that "Acme Store" scales linearly with screen width but it also means it's not exactly accurate to the Breakpoints. Based off the task explanation though, I felt that it was more important to have responsive text that captures the essence of the sketch rather than follow the sketch exactly to a tee.
+2. I tried to make the project as Responsive as possible so for things like the "Acme Store" header, I use a minimum of 26px font added to a 1vw scaling factor:
+
+```
+  h1 {
+        font-weight: bold;
+        font-size: calc(26pt + 1vw);
+        @media (max-width: $phone) {
+          margin-bottom: 12px;
+        }
+```
+
+This means that "Acme Store" scales linearly with screen width but it also means it's not exactly accurate to the Breakpoints. Based off the task explanation though, I felt that it was more important to have responsive text that captures the essence of the sketch rather than follow the sketch exactly to a tee.
 
 3. That being said, there are exceptions that I handled on a case by case basis. The price of the items are 21px in Breakpoints 1 and 2 despite the breakpoints having different widths. The price of the items in Breakpoint 3 is 16px so I handled that adaptively rather than responsively because the sketch file made it clear that that particular piece of text should not scale linearly with width.
 
 After working on this project for many hours, I've learned that sometimes combining Responsive and Adaptive design allows for the best results. For example in ProductsList.scss/PrudctsList.css:
 
-'''
+```
 .infoWrapper{
     padding: calc(16px + 1%);
     width: 100%;
@@ -35,9 +48,9 @@ After working on this project for many hours, I've learned that sometimes combin
         padding: 3.75%; //
     }
 }
-'''
+```
 
-I noticed the padding of the product information in their respective boxes has a constant ratio between the tablet and PC versions of the website. However, this falls through on the mobile version - the width is too small to maintain that ratio and that's reflected in the sketh drawings. Therefore, I chose to use a different formula for mobile specifically. Both formulas are Responsive formulas, but the method I use to choose the formula is Adaptive.
+I noticed the padding of the product information in their respective boxes has a constant ratio between the tablet and PC versions of the website. However, this falls through on the mobile version - the width is too small to maintain that ratio and that's reflected in the sketch drawings. Therefore, I chose to use a different formula for mobile specifically. Both formulas are Responsive formulas, but the method I use to choose the formula is Adaptive.
 
 ## Task 1B: Implement Responsive design (Shopping Cart)
 
@@ -45,7 +58,7 @@ After implementing the Products List, it's time to make the shopping cart look a
 
 1. One of the most conceptually difficult parts of the shopping cart was how to handle multiple products. The sketch doesn't clearly show exactly how we should handle overflow in this case and it's almost bound to happen because there's not enough room to hold all 3 products on the screen. I elected to use a scrollbar to handle this scenario but thankfully the scrollbar only appears when actually needed. You can see a screenshot of it in action below.
 
-[![CartScrolling](Screenshots/CartScrolling.PNG)]
+<img src="Screenshots/CartScrolling.PNG" width="600">
 
 ## Future Improvements
 
@@ -54,31 +67,31 @@ Although I'm proud of my solution, it is by no means perfect and there is plenty
 
 ## In-Progress Screenshots
 
-# First attempt at Products List
-[![ProductsList1](Screenshots/Task1_1.PNG)]
+### First attempt at Products List
+<img src="Screenshots/Task1_1.PNG" width="600">
 
-# Products List nearly Finished
-[![ProductsList2](Screenshots/Task1_2.PNG)]
+### Products List nearly Finished
+<img src="Screenshots/Task1_2.PNG" width="600">
 
-# Semi-Working cart
-[![SemiWorkingCart](Screenshots/semiworkingcart3.PNG)]
+### Semi-Working cart
+<img src="Screenshots/semiworkingcart3.PNG" width="600">
 
 ## Finished Screenshots
 
-# Breakpoint1
-[![Breakpoint1](Screenshots/Breakpoint1.PNG)]
+### Breakpoint1
+<img src="Screenshots/Breakpoint1.PNG" width="400">
 
-# Breakpoint2
-[![Breakpoint2](Screenshots/Breakpoint2.PNG)]
+### Breakpoint2
+<img src="Screenshots/Breakpoint2.PNG" width="400">
 
-# Breakpoint3
-[![Breakpoint3](Screenshots/Breakpoint3.PNG)]
+### Breakpoint3
+<img src="Screenshots/Breakpoint3.PNG" width="200">
 
-# FinishedCart1
-[![FinishedCart1](Screenshots/FinishedCart1.PNG)]
+### FinishedCart1
+<img src="Screenshots/FinishedCart1.PNG" width="300">
 
-# FinishedCart2
-[![FinishedCart2](Screenshots/FinishedCart2.PNG)]
+### FinishedCart2
+<img src="Screenshots/FinishedCart2.PNG" width="200">
 
-# FinishedCart3
-[![FinishedCart3](Screenshots/FinishedCart3.PNG)]
+### FinishedCart3
+<img src="Screenshots/FinishedCart3.PNG" width="200">
