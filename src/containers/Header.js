@@ -8,7 +8,8 @@ const Header = ({ products, openModal}) => (
    <div className="shopTitle">
     <h1>Acme Store</h1>
     </div>
-      <a className="cartLink" href="#" >
+    
+      <a className="cartLink" onClick={openModal} >
         <div className="cartLinkContainer">
           <img src="./assets/Cart.svg" className="cartImg" alt="cart-icon" />
               {products.length ? 'View Cart': 'Your cart is empty'}

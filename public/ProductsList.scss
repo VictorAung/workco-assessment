@@ -1,3 +1,6 @@
+// sass --watch ProductsList.scss ProductsList.css
+
+
 $viewportMinimum: 320px;
 $viewportMaximum: 1280px;
 
@@ -22,6 +25,7 @@ html {
   background: #F5F5F5;
   font-family: 'Chivo', sans-serif;
   box-sizing: border-box;
+  :focus {outline:0;}
 }
 
 * {
@@ -29,6 +33,7 @@ html {
   vertical-align: baseline;
   box-sizing: inherit;
   padding: 0;
+
 }
 
 
@@ -46,13 +51,23 @@ a {
 .header{
     display: flex;
     border-bottom: 1px solid #DADADA;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: left;
+    text-align: left;
+
+    @include breakpoint(phone) { //this is to put the Your Cart is Empty text to the right of the title of the store
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
 
     h1 {
         font-weight: bold;
         font-size: calc(26pt + 2vw);
+        @media (max-width: $phone) {
+          margin-bottom: 12px;
+        }
     }
 }
 
@@ -64,6 +79,8 @@ a {
 }
 
 .cartLink:hover {
+  cursor: pointer;
+
   filter: brightness(0) saturate(100%) invert(41%) sepia(91%)
   saturate(328%) hue-rotate(170deg) brightness(94%) contrast(100%);
   //used to create #color: #407FC0; on the icon as well
@@ -72,8 +89,16 @@ a {
 .cartLinkContainer {
   font-size: 14px; //cart is 14px Chivo at all breakpoints
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: left;
+
+  @include breakpoint(phone) { //
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: $phone) {
+    margin-bottom: 24px;
+  }
 
 }
 
